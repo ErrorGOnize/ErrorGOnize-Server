@@ -1,14 +1,19 @@
 package io.errorgonize.note.store;
 
 import io.errorgonize.note.entity.Note;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
+@Mapper
 public interface NoteStore {
-    int create(Note newNote);
+    void create(Note newNote);
+    int getNoteId();
     void update(Note newNote);
-    void delete(int note_no);
+    void delete(int noteNo);
 
-    Note retrieve(int note_no);
+    Note retrieve(int noteNo);
     List<Note> retrieveAll();
 }
