@@ -1,41 +1,40 @@
 package io.errorgonize.note.controller;
 
 import io.errorgonize.note.entity.Note;
-import io.errorgonize.note.service.NoteService;
-import io.errorgonize.note.service.TestDAO;
-import io.errorgonize.note.store.logic.TestDTO;
-import lombok.RequiredArgsConstructor;
+import io.errorgonize.note.store.NoteStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 public class NoteController {
-    private final NoteService noteService;
+    @Autowired
+    private NoteStore noteStore;
 
     @PostMapping("/note")
-    public int register(@RequestBody Note newNote) {
-        return noteService.register(newNote);
+    public int Create(@RequestBody Note newNote) {
+        noteStore.create(newNote);
+        return noteStore.getNoteId();
     }
 
-    @GetMapping("/note/{note_no}")
-    public Note find(@PathVariable int note_no) {
-        return noteService.find(note_no);
+    @PatchMapping("/note")
+    public void Update(@RequestBody Note newNote) {
+        noteStore.update(newNote);
+    }
+
+    @DeleteMapping("/note/{noteNo}")
+    public void Delete(@PathVariable int noteNo) {
+        noteStore.delete(noteNo);
+    }
+
+    @GetMapping("/note/{noteNo}")
+    public Note Retrieve(@PathVariable int noteNo) {
+        return noteStore.retrieve(noteNo);
     }
 
     @GetMapping("/note")
-    public List<Note> findAll() {
-        return noteService.findAll();
-    }
-
-    @PutMapping("/note")
-    public void modify(@RequestBody Note newNote) {
-        noteService.modify(newNote);
-    }
-
-    @DeleteMapping("/note/{note_no}")
-    public void remove(@PathVariable int note_no) {
-        noteService.remove(note_no);
+    public List<Note> RetrieveAll() {
+        return noteStore.retrieveAll();
     }
 }
