@@ -3,11 +3,11 @@
 <mapper namespace="io.errorgonize.qna.store.QnaStore">
     <insert id="createQ" parameterType="io.errorgonize.qna.entity.Qna">
         insert into question (category, writer, question_title, question_content, writer_id)
-            values (#{category}, #{writerQ}, #{question_title}, #{question_content}, #{writer_idQ})
+            values (#{category}, #{writerQ}, #{question_title}, #{question_content}, #{writer_id})
     </insert>
 
     <insert id="createA" parameterType="io.errorgonize.qna.entity.Qna">
-        insert into answer (question_no, answer_content, writer_id, writer)
+        insert into answer (question_no, answer_content, writer_idA, writer)
             values (#{question_no}, #{answer_content}, #{writer_idA}, #{writer})
     </insert>
 
