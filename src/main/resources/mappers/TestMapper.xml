@@ -19,7 +19,7 @@
             noteContent=#{noteContent},
             likedCnt=#{likedCnt},
             viewCnt=#{viewCnt}
-        where
+        wheres
             noteNo=#{noteNo}
     </update>
 
