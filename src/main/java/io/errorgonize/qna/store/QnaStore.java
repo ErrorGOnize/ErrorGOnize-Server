@@ -13,8 +13,8 @@ public interface QnaStore {
     int getQnaId();
     void updateQ(Qna newQuestion);
     void updateA(Qna newAnswer);
-    void deleteQ(int question_no);
-    void deleteA(int question_no, int answer_no);
-    Qna retrieve(int question_no);
+    void deleteQ(int questionNo);
+    void deleteA(int questionNo, int answerNo);
+    Qna retrieve(int questionNo);
     List<Qna> retrieveAll();
 }

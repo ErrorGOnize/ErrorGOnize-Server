@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.errorgonize.qna.store.QnaStore">
     <insert id="createQ" parameterType="io.errorgonize.qna.entity.Qna">
-        insert into question (category, writer, question_title, question_content, writer_id)
-            values (#{category}, #{writerQ}, #{question_title}, #{question_content}, #{writer_id})
+        insert into question (category, writer, questionTitle, questionContent, writerId)
+            values (#{category}, #{writer}, #{questionTitle}, #{questionContent}, #{writerId})
     </insert>
 
     <insert id="createA" parameterType="io.errorgonize.qna.entity.Qna">
-        insert into answer (question_no, answer_content, writer_idA, writer)
-            values (#{question_no}, #{answer_content}, #{writer_idA}, #{writer})
+        insert into answer (questionNo, answerContent, writerId, writer)
+            values (#{questionNo}, #{answerContent}, #{writerId}, #{writer})
     </insert>
 
     <select id="getQnaId" resultType="java.lang.Integer">
@@ -20,41 +20,41 @@
         set
             moddate=NOW(),
             category=#{category},
-            question_title=#{question_title},
-            question_content=#{question_content},
+            questionTitle=#{questionTitle},
+            questionContent=#{questionContent},
             curious=#{curious},
-            view_cnt=#{view_cnt}
+            viewCnt=#{viewCnt}
         where
-            question_no=#{question_no}
+            questionNo=#{questionNo}
     </update>
 
     <update id="updateA" parameterType="io.errorgonize.qna.entity.Qna">
         update answer
         set
             moddate=NOW(),
-            answer_content=#{answer_content},
+            answerContent=#{answerContent},
             clap=#{clap}
         where
-            question_no=#{question_no}
+            questionNo=#{questionNo}
     </update>
 
     <delete id="deleteQ">
-        delete from question, answer where question_no=#{question_no}
+        delete from question, answer where questionNo=#{questionNo}
     </delete>
 
     <delete id="deleteA">
-        delete from answer where question_no=#{question_no} AND answer_no=#{answer_no}
+        delete from answer where questionNo=#{questionNo} AND answerNo=#{answerNo}
     </delete>
 
     <select id="retrieve" resultType="io.errorgonize.qna.entity.Qna">
         select * from question left outer join answer
-            on question.question_no = answer.question_no
-                where question.question_no=#{question_no}
+            on question.questionNo = answer.questionNo
+                where question.questionNo=#{questionNo}
     </select>
 
     <select id="retrieveAll" resultType="io.errorgonize.qna.entity.Qna">
         select * from question left outer join answer
-            on question.question_no = answer.question_no
+            on question.questionNo = answer.questionNo
                 ORDER BY question.moddate DESC
     </select>
 </mapper>

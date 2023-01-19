@@ -35,19 +35,19 @@ public class QnaController {
         qnaStore.updateA(newAnswer);
     }
 
-    @DeleteMapping("/qna/{question_no}")
-    public void DeleteQ(@PathVariable int question_no) {
-        qnaStore.deleteQ(question_no);
+    @DeleteMapping("/qna/{questionNo}")
+    public void DeleteQ(@PathVariable int questionNo) {
+        qnaStore.deleteQ(questionNo);
     }
 
-    @DeleteMapping("/qna/{answer_no}")
-    public void DeleteA(@PathVariable int question_no, int answer_no) {
-        qnaStore.deleteA(question_no, answer_no);
+    @DeleteMapping("/qna/{answerNo}")
+    public void DeleteA(@PathVariable int questionNo, int answerNo) {
+        qnaStore.deleteA(questionNo, answerNo);
     }
 
-    @GetMapping("/qna/{question_no}")
-    public Qna Retrieve(@PathVariable int question_no) {
-        return qnaStore.retrieve(question_no);
+    @GetMapping("/qna/{questionNo}")
+    public Qna Retrieve(@PathVariable int questionNo) {
+        return qnaStore.retrieve(questionNo);
     }
 
     @GetMapping("/qna")

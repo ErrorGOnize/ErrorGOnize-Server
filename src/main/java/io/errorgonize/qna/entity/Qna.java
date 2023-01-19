@@ -10,15 +10,15 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class Qna {
-    private int question_no;
-    private int answer_no;
+    private int questionNo;
+    private int answerNo;
     private String writerQ;
     private String writerA;
-    private String writer_idQ;
-    private String writer_idA;
-    private String question_title;
-    private String question_content;
-    private String answer_content;
+    private String writerIdQ;
+    private String writerIdA;
+    private String questionTitle;
+    private String questionContent;
+    private String answerContent;
     private LocalDateTime regdateQ;
     private LocalDateTime regdateA;
     private LocalDateTime moddateQ;
@@ -26,7 +26,7 @@ public class Qna {
     private String category;
     private int answered;
     private int curious;
-    private int view_cnt;
+    private int viewCnt;
     private int clap;
 
 //    public Qna(String question_title, String question_content, String answer_content,
