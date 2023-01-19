@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="io.errorgonize.user.store.UserStore">
     <insert id="create" parameterType="io.errorgonize.user.entity.User">
-        insert into user (name, intro, tag_p, tag_i, email)
-        values (#{name}, #{intro}, #{tag_p}, #{tag_i}, #{email})
+        insert into user (name, intro, tagP, tagI, email)
+        values (#{name}, #{intro}, #{tagP}, #{tagI}, #{email})
     </insert>
 
     <select id="retrieve" resultType="io.errorgonize.user.entity.User">
@@ -15,8 +15,8 @@
         set
             name=#{name},
             intro=#{intro},
-            tag_p=#{tag_p},
-            tag_i=#{tag_i},
+            tagP=#{tagP},
+            tagI=#{tagI},
             email=#{email}
     </update>
 

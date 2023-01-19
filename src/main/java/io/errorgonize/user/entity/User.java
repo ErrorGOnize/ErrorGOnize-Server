@@ -16,8 +16,8 @@ public class User {
     private String name;
     private int id;
     private String intro;
-    private String tag_p;
-    private String tag_i;
+    private String tagP;
+    private String tagI;
     private String email;
     //img
 
