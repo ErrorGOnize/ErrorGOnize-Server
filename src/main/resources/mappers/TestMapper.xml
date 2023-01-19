@@ -16,10 +16,8 @@
             category=#{category},
             visible=#{visible},
             noteTitle=#{noteTitle},
-            noteContent=#{noteContent},
-            likedCnt=#{likedCnt},
-            viewCnt=#{viewCnt}
-        wheres
+            noteContent=#{noteContent}
+        where
             noteNo=#{noteNo}
     </update>
 
