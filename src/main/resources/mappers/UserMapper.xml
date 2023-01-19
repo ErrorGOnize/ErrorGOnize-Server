@@ -18,6 +18,7 @@
             tagP=#{tagP},
             tagI=#{tagI},
             email=#{email}
+        where id=#{id}
     </update>
 
     <delete id="delete" parameterType="java.lang.Integer">
